@@ -1,0 +1,56 @@
+<%- include('../include/pickUpDash-head',{pageTitle: pageTitle, pickUpInfo:pickUpInfo.name}); -%>
+<div class="content">
+    <div class="container-fluid" style="padding-left: 280px; width: 130%;">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-3 col-xs-12">
+                <div class="card text-center">
+                    <div class="card-header">
+                      <h3>Donation Approval</h3>
+                    </div>
+                    <center><img class="card-img-top" src="https://secureservercdn.net/166.62.111.64/ce0.847.myftpupload.com/wp-content/uploads/2016/09/donatebox-800x410.jpg" style="width: 50%;" alt="Card image cap"></center>
+                    <div class="card-body">
+                      <h5 class="card-title"><b>Donated By :</b> <%=donation.donorId.fname+" "+donation.donorId.lname%></h5>
+                      <h5 class="card-title"><b>Phone No. :</b> <%=donation.donorId.phoneno%></h5>
+                      <h5 class="card-title"><b>Email. :</b> <%=donation.donorId.email%></h5>
+                      <p class="card-text"><b>Address :</b> <%=donation.donorId.address.addressLineOne+" "+donation.donorId.address.addressLineTwo+" "+donation.donorId.address.city+" "+donation.donorId.address.state+" "+donation.donorId.address.pincode%></p>
+                      <p class="card-text"><b>Pick-Up Date :</b> <%=donation.pickUpDateAndTime%></p>
+                      <p class="card-text"><b>Accepted :</b> <%=donation.accepted%></p>
+                      <form action="/pickup/donationApproval/<%= donation._id %>" method="post">
+                      <table class="table">
+                        <thead class="table-primary"><th colspan="3">Donated Items</th></thead>
+                        <tr class="table-info">
+                          <th>Item Name</th>
+                          <th>Quantity</th>
+                          <th>Select</th>
+                        </tr>
+                        <% for (const don of donation.donation) { %>
+                            <tr>
+                                <td class='text-center'><%= don.name %></td>
+                                <td class='text-center'><%= don.quantity %></td>
+                                <td>
+                                    <input type="checkbox" name="chbx" value=<%= don.name %>>
+                                </td>
+                            </tr>
+                      <% } %>
+                      </p>
+                      </table>
+                      <div class="row">
+                        <div class="col-lg-6 text-center">
+                          <input type="submit" name="btnSubmit" value="Accept" class="btn btn-primary btn-lg">
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <a href="/pickup/donationRemove/<%=donation._id%>" class="btn btn-primary btn-lg">Decline</a>
+                          </div>
+                        </div> &nbsp;
+                    </div>
+                </form>
+                    <div class="card-footer text-muted">
+                      
+                    </div>
+                  </div>
+            </div>
+    
+</div>
+</div>
+</div>
+<%- include('../include/pickUpDash-footer'); -%>

@@ -1,0 +1,46 @@
+<%- include('../include/dashboard-head', {pageTitle: pageTitle, adminInfo: adminInfo,fodate:fodate}); -%>
+
+<div class="container-fluid" style="padding-left: 280px; width: 130%;">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-3 col-xs-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Donation Details</h3>
+                </div>
+                <center> <img src="/donation-pics/<%=donation.donationPic%>" alt="not able to show" width="50%"> </img>
+                </center>
+                <div class="card-body">
+                    <h5 class="card-title"><b>Donated By :</b> <%=donation.donorId.fname%> <%=donation.donorId.lname%>
+                    </h5>
+                    <h5 class="card-title"><b>Phone No. :</b> <%=donation.donorId.phoneno%></h5>
+                    <h5 class="card-title"><b>Email. :</b> <%=donation.donorId.email%></h5>
+                    <p class="card-text"><b>Address :</b>
+                        <%=donation.donorId.address.addressLineOne+" "+donation.donorId.address.addressLineTwo+" "+donation.donorId.address.city+" "+donation.donorId.address.state+" "+donation.donorId.address.pincode%>
+                    </p>
+                    <p class="card-text"><b>Pick-Up Date :</b> <%=fodate%></p>
+                    <table class="table">
+                        <thead class="table-primary">
+                            <th colspan="2">Donated Items</th>
+                        </thead>
+                        <tr class="table-info">
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                        <% for (const med of donation.donation) { %>
+                        <tr>
+                            <td class='text-center'><%= med.name %></td>
+                            <td class='text-center'><%= med.quantity %></td>
+                        </tr>
+                        <% } %>
+                        </p>
+                    </table>
+                </div>
+                <div class="card-footer text-muted">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<%- include('../include/dashboard-footer'); -%>

@@ -1,0 +1,151 @@
+<%- include('../include/pickUpDash-head',{pageTitle: pageTitle, pickUpInfo:pickUpInfo.name}); -%>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <p class="card-category">Total Donations</p>
+                        <h3 class="card-title">
+                            <%=total%>
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Updated
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-donate"></i>
+                        </div>
+                        <p class="card-category">Upcoming</p>
+                        <h3 class="card-title">
+                            <%=upcoming%>
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                        <p class="card-category">Total accepted</p>
+                        <h3 class="card-title"><%=accepted%></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <p class="card-category">Total Donors</p>
+                        <h3 class="card-title"><%=donor%></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title text-center">Upcoming Donations</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Donor Name
+                                    </th>
+                                    <th>
+                                        Pick-up Date
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <% for (const don of donation) { %>
+                                    <tr>
+                                        <td>
+                                            <%= don.donorId.fname+" "+don.donorId.lname%>
+                                        </td>
+                                        <td>
+                                            <%= don.pickUpDateAndTime %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                            <center><a href="/pickup/upcomingDonations" class="btn btn-primary">View More</a></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title text-center">Accepted Donations</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Donor Name
+                                    </th>
+                                    <th>
+                                        Phone No.
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <% for (const don of history) { %>
+                                    <tr>
+                                        <td>
+                                            <%= don.donorId.fname+" "+don.donorId.lname%>
+                                        </td>
+                                        <td>
+                                            <%= don.donorId.phoneno %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                                
+                            </table>
+                            <center><a href="/pickup/history" class="btn btn-primary">View More</a></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../include/pickUpDash-footer'); -%>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%= pageTitle %></title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <script src="https://kit.fontawesome.com/39e7af8627.js" crossorigin="anonymous"></script>
+
+  <!-- Material Kit CSS -->
+  <link href="../css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white">
+      <div class="logo bg-light">
+        <div class="simple-text logo-mini">
+          <i class="fas fa-user-circle" style="font-size: 2rem;"></i>
+        </div>
+        <div class="simple-text logo-normal">
+          <%= adminInfo.email %>
+        </div>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <%if(active && pageTitle==='dashboard'){%>
+          <li class="nav-item active ">
+            <%}else{%>
+          <li class="nav-item  ">
+            <%}%>
+            <a class="nav-link" href="/adminDashboard">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <%if(active  && pageTitle==='Pickup Registration'){%>
+          <li class="nav-item active ">
+            <%}else{%>
+          <li class="nav-item  ">
+            <%}%>
+            <a class="nav-link" href="/pickupRegistration">
+              <i class="fas fa-user-plus"></i>
+              <p>Pickup Registration</p>
+            </a>
+          </li>
+          <%if(active  && pageTitle==='Admin Profile'){%>
+          <li class="nav-item active ">
+            <%}else{%>
+          <li class="nav-item ">
+            <%}%>
+            <a class="nav-link" href="/adminprofile">
+              <i class="fas fa-id-badge"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <%if(active  && pageTitle==='Donors List'){%>
+          <li class="nav-item active ">
+            <%}else{%>
+          <li class="nav-item  ">
+            <%}%>
+            <a class="nav-link" href="/admin/donar">
+              <i class="fas fa-user-tie"></i>
+              <p>DonorsList</p>
+            </a>
+          </li>
+          <%if(active && pageTitle==='Donation List'){%>
+          <li class="nav-item active ">
+            <%}else{%>
+          <li class="nav-item  ">
+            <%}%>
+            <a class="nav-link" href="/admin/donation">
+              <i class="fas fa-hand-holding-usd"></i>
+              <p>Donation List</p>
+            </a>
+          </li>
+
+
+          <li class="nav-item  ">
+            <a class="nav-link" href="/admin/logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+          <!-- your sidebar here -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top navbar">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;"><%= pageTitle %></a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+    </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">

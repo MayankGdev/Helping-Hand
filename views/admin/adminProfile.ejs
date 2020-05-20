@@ -1,0 +1,25 @@
+<%- include('../include/dashboard-head', {active:active,pageTitle: pageTitle, adminInfo: adminInfo,fodate:fodate}); -%>
+
+
+
+<div class="container-fluid" style="padding-left: 300px;">
+    <div class="row">
+        <div class="col-md-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="card card-profile">
+                <div class="card-avatar">
+                    <a href="javascript:;">
+                        <img class="img" src="https://img.icons8.com/plasticine/2x/user.png" />
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-category text-gray"><%=adminInfo.name%></h2>
+                    <h4 class="card-title"><%=adminInfo.phoneNo%></h4>
+                    <h4 class="card-title"><%=adminInfo.email%></h4>
+
+                    <h4 class="card-title"><%=fodate%></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../include/dashboard-footer'); -%></div>

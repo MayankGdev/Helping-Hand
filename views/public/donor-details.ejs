@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Registration</title>
+
+    <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+        rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/"><strong>Helping Hand</strong></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-lg-12">
+                <h2 class="text-center mt-0">Donor Registeration</h2>
+                <hr class="divider my-4" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-danger">
+                <p><%= typeof msg != 'undefined' ? msg : '' %></p>
+            </div>
+        </div>
+        <form action="/register-donor" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Donation Picture</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" name='donationImage'>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h4>Personal Details</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>First Name<i class="text-danger">*</i></label>
+                        <input type="text" class="form-control" name="fname" placeholder="Rahul" required>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Last Name<i class="text-danger">*</i></label>
+                        <input type="text" class="form-control" name="lname" placeholder="Gupta" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>EMail<i class="text-danger">*</i></label>
+                        <input type="email" class="form-control" name="email" placeholder="example@sample.com"
+                            aria-describedby="emailHelp" required>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Phone<i class="text-danger">*</i></label>
+                        <input type="text" class="form-control" name="phoneno" placeholder="98XXXXXXXX" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h4>Home Address</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label>Address Line 1<i class="text-danger">*</i> </label>
+                        <input type="text" class="form-control" name="addressLineOne" placeholder="Address Line 1" required>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label>Address Line 2<i class="text-danger">*</i></label>
+                        <input type="text" class="form-control" name="addressLineTwo" placeholder="Address Line 2" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label>City<i class="text-danger">*</i></label>
+                        <input type="text" class="form-control" name="city" placeholder="city" required>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label>State<i class="text-danger">*</i></label>
+                        <input type="text" class="form-control" name="state" placeholder="state" required>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label>City<i class="text-danger">*</i></label>
+                        <input type="text" class="form-control" name="pincode" placeholder="pincode" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <input type="submit" class="btn btn-primary btn-lg mb-5" value="Submit Details">
+                </div>
+            </div>
+        </form>
+    </div>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

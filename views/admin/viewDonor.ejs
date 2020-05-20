@@ -1,0 +1,29 @@
+<%- include('../include/dashboard-head', {pageTitle: pageTitle, adminInfo: adminInfo}); -%>
+<div class="container">
+    <div class="row">
+        <center>
+            <div class="col-md-8">
+                <div class="card card-profile" style="margin:200px;">
+                    <div class="card-avatar" style="background-color: black;">
+                        <img class="rounded-circle">
+                        <i class="fas fa-user-graduate " style="font-size: 8rem;padding: 5%; color: #9c27b0;"></i>
+                        </img>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray"><%=donor.fname%> <%=donor.lname%></h6>
+                        <h4 class="card-title"> <%=donor.phoneno%> </h4>
+                        <p class="card-description">
+                            <p> <%=donor.email%></p>
+                            <p><%=donor.address.address1%> <%=donor.address.address2%> <%=donor.address.city%>
+                                <%=donor.address.state%> <%=donor.address.pincode%></p>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+</div>
+
+
+<%- include('../include/dashboard-footer'); -%>

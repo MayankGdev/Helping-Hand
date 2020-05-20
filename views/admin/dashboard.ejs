@@ -1,0 +1,150 @@
+<%- include('../include/dashboard-head',{active:active,pageTitle: pageTitle, adminInfo: adminInfo}); -%>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <p class="card-category">Donation</p>
+                        <h3 class="card-title">
+                            <%=donationLength%>
+
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last updated 24 Hours ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <p class="card-category">Donors</p>
+                        <h3 class="card-title"><%=donorsLength%></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last updated 24 Hours ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-user-alt"></i>
+                        </div>
+                        <p class="card-category">Pickup Guys</p>
+                        <h3 class="card-title"><%=pickuplen%></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last updated 24 Hours ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <p class="card-category">Upcoming Donation</p>
+                        <h3 class="card-title"><%=upcomingdonlength%></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last updated 24 Hours ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6" style="width: 50%;">
+                    <div class=" card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title ">Donors</h4>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th> fname </th>
+                                        <th> lname </th>
+                                        <th> email </th>
+                                        <th> phone </th>
+
+                                    </thead>
+                                    <% if(donors.length!=0){donors.forEach(donor=>{%>
+                                    <tbody>
+                                        <tr>
+                                            <td> <%=donor.fname%> </td>
+                                            <td> <%=donor.lname%> </td>
+                                            <td> <%=donor.email%> </td>
+                                            <td> <%=donor.phoneno%> </td>
+
+                                        </tr>
+                                    </tbody>
+                                    <%});}else{%>
+                                    <h4>no records found</h4>
+                                    <%}%>
+                    </table>
+                    <center><a href="/admin/donation" class="btn btn-primary">View More</a> </center>
+                  </div>
+                </div>
+            </div>
+        </div>
+                    <div class="col-md-6" style="width: 50%;">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">Donation List</h4>
+        
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th> Donor Name </th>
+                                            <th> pickup Date & time </th>
+                                            <th> Created On </th>
+                                            <th> Donation Accepted </th>
+                                           
+                                        </thead>
+                                        <% if(donations.length!=0){donations.forEach(donation=>{%>
+                                    <tbody>
+                                        <tr>
+                                            <td> <%=donation.donorId.fname%> <%=donation.donorId.lname%></td>
+                                            <td> <%=donation.pickUpDateAndTime%> </td>
+                                            <td> <%=donation.createdOn%> </td>
+                                            <td> <%=donation.accepted%> </td>
+
+                                        </tr>
+                                    </tbody>
+                                    <%});}else{%>
+                                    <h4>no records found</h4>
+                                    <%}%>
+                        </table>
+                         <center><a href="/admin/donar" class="btn btn-primary">View More</a> </center>
+                      </div>
+                            </div>
+                  
+               </div>
+                    </div>
+    </div>
+</div>
+        
+        <%- include('../include/dashboard-footer'); -%>

@@ -1,0 +1,44 @@
+<%- include('../include/dashboard-head', {active:active,pageTitle: pageTitle, adminInfo: adminInfo}); -%>
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="width: 60%;">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Donation List</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th> Donor Name </th>
+                                    <th> pickup Date & time </th>
+                                    <th> Created On </th>
+                                    <th> Donation Accepted </th>
+                                    <th> Action </th>
+                                </thead>
+                                <% if(donations.length!=0){donations.forEach(donation=>{%>
+                                <tbody>
+                                    <tr>
+                                        <td> <%=donation.donorId.fname%> <%=donation.donorId.lname%></td>
+                                        <td> <%=donation.pickUpDateAndTime%> </td>
+                                        <td> <%=donation.createdOn%> </td>
+                                        <td> <%=donation.accepted%> </td>
+                                        <td> <a href="/admin_donation/<%=donation._id%>"><i class="fa fa-eye"
+                                                    aria-hidden="true"></i></a> </td>
+                                    </tr>
+                                </tbody>
+                                <%});}else{%>
+                                <h4>no records found</h4>
+                                <%}%>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+<%- include('../include/dashboard-footer'); -%>

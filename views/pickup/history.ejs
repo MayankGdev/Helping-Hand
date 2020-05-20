@@ -1,0 +1,62 @@
+<%- include('../include/pickUpDash-head',{pageTitle: pageTitle, pickUpInfo:pickUpInfo.name}); -%>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-8 col-sm-6">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title ">Upcoming Donations Table</h4>
+                      <p class="card-category">Contain all the upcoming donations that needs to pick-up.</p>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                            <th>
+                              Donor Name
+                            </th>
+                            <th>
+                              Mobile No.
+                            </th>
+                            <th>
+                              Email
+                            </th>
+                            <th>
+                              Pick-up Date
+                            </th>
+                            <th>
+                              View
+                            </th>
+                          </thead>
+                          <tbody>
+                        <% for (const don of donation) { %>
+                            <tr>
+                              <td>
+                                <%= don.donorId.fname+" "+don.donorId.lname%>
+                              </td>
+                              <td>
+                                <%= don.donorId.phoneno %>
+                              </td>
+                              <td>
+                                <%= don.donorId.email %>
+                              </td>
+                              <td>
+                                <%= don.pickUpDateAndTime %>
+                              </td>
+                              <td class="text-primary text-center">
+                                <a href="/pickUp/donatonView<%=don.id%>"><i class="fas fa-eye"></i></a>
+                              </td>
+                            </tr>
+                        <% } %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../include/pickUpDash-footer'); -%>

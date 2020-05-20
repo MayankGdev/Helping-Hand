@@ -1,0 +1,39 @@
+<%- include('../include/auth-head', { pageTitle: pageTitle }); -%>
+
+<div class="container h-100">
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="card card-container">
+      <center><img src="/images/usericon.png" alt="icon" width="120px" height="120px" /></center>
+      <p id="profile-name" class="profile-name-card">
+        <%= pageTitle %>
+      </p>
+      <% if (isError){ %>
+      <div class="error-msg-container">
+        <p class="error-msg">
+          <%= isError %>
+        </p>
+      </div>
+      <% } else if (reset) { %>
+      <div class="reset-msg-container">
+        <p class="reset-msg">
+          <%= reset %>
+        </p>
+      </div>
+      <% } %>
+      <form class="form-signin" id="signin-form" action="<%= formPath %>" method="POST">
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required
+          autofocus />
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+          required />
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">
+          Login
+        </button>
+      </form>
+      <a href="<%= forgetLink %>" class="forgot-password">
+        Forgot the password?
+      </a>
+    </div>
+  </div>
+</div>
+
+<%- include('../include/auth-footer'); -%>

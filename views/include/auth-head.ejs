@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+  <% if (pageTitle === 'Admin Login' || pageTitle==='Admin Password Reset' || pageTitle === 'Admin Forgot Password' ){ %>
+  <link rel="stylesheet" href="../css/admin-login.css" />
+  <% } else if (pageTitle === 'pickup Login' ||pageTitle==='pickup Password Reset' || pageTitle === 'pickup Forgot Password') { %>
+  <link rel="stylesheet" href="../css/pickup-login.css" />
+  <% } %>
+
+  <script src="https://kit.fontawesome.com/39e7af8627.js" crossorigin="anonymous"></script>
+
+  <title><%= pageTitle %></title>
+</head>
+
+<body></body>
+
+</html>
